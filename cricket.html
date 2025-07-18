@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Scorer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="heading">
+            <p id="big">Cricket</p>
+            <p id="small">scorer</p>
+        </div>
+        <div class="settings">
+            <i class="fa-solid fa-bell"></i>
+            <i class="fa-solid fa-gear"></i>
+        </div>
+    </header>
+
+    <div class="small-block">
+        <p class="div-heading">Teams</p>
+        <div class="team-input">
+            <input placeholder="Host Team" class="team-name" id="hostn">
+            <input placeholder="Visitor Team" class="team-name" id="visitorn">
+        </div>
+    </div>
+
+    <div class="small-block">
+        <p class="div-heading">Toss won by?</p>
+        <div class="toss-input">
+            <input class="radio" type="radio" id="host" value="host" name="toss-winner" checked><label for="host" id="hostna">Host Team</label>
+            <input class="radio" type="radio" id="visitor" value="visitor" name="toss-winner"><label for="visitor" id="visitna">Visitor Team</label>
+        </div>
+    </div>
+
+    <div class="small-block">
+        <p class="div-heading">Opted To?</p>
+        <div class="toss-input">
+            <input class="radio" type="radio" id="bat" value="bat" name="toss-choice" checked><label for="bat">Bat</label>
+            <input class="radio" type="radio" id="ball" value="ball" name="toss-choice"><label for="ball">Ball</label>
+        </div>
+    </div>
+
+    <div class="small-block">
+        <p class="div-heading">Overs?</p>
+        <div class="toss-input">
+            <input placeholder="20?" class="team-name" type="number" id="overs">
+        </div>
+    </div>
+
+    <div class="submit-btn">
+        <button id="start-match" onclick="startGame()">Start Match</button>
+    </div>
+
+    <p id="error-msg"></p>
+    <div id="popup">
+        <p id="popupMsg"></p>
+        <button onclick="closePopup()">OK</button>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
