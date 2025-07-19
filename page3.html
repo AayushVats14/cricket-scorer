@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match</title>
+    <link rel="stylesheet" href="style3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <div class="heading">
+            <i class="fa-solid fa-arrow-left"></i>
+            <p id="match-info">Australia v/s India</p>
+            <i class="fa-solid fa-chart-line"></i>
+            <i class="fa-solid fa-table"></i>
+        </div>
+    </header>
+
+    <div class="info">
+        <p id="matchInfo"></p>
+    </div>
+
+    <div class="score">
+        <div class="runs">
+            <p>Australia, 1st inning</p>
+            <div class="overs">
+                <p id="run-calc">0-0</p>
+                <p id="over-calc">(0.0)</p>
+            </div>
+        </div>
+
+        <div class="crr">
+            <p id="run-rate">CRR</p>
+            <p>0.00</p>
+        </div>
+    </div>
+
+    <div class="bat">
+        <div class="line1">
+            <p id="head1">Batsman</p>
+            <p>R</p>
+            <p>B</p>
+            <p>4s</p>
+            <p>6s</p>
+            <p>SR</p>
+        </div>
+
+        <div class="line2">
+            <p id="head2">A</p>
+            <p class="ru">0</p>
+            <p>0</p>
+            <p>0</p>
+            <p>0</p>
+            <p>0</p>
+        </div>
+
+        <div class="line2">
+            <p id="head3">B</p>
+            <p class="ru">0</p>
+            <p>0</p>
+            <p>0</p>
+            <p>0</p>
+            <p>0</p>
+        </div>
+
+        <div class="line3">
+            <p id="head4">Bowler</p>
+            <p>O</p>
+            <p>M</p>
+            <p>R</p>
+            <p>W</p>
+            <p>ER</p>
+        </div>
+
+        <div class="line4">
+            <p id="head5">C</p>
+            <p>0.0</p>
+            <p>0</p>
+            <p>0</p>
+            <p>0</p>
+            <p>0.00</p>
+        </div>
+    </div>
+
+    <div class="this-over">
+        <p>This over:</p>
+        <div class="ball">0</div>
+        <div class="ball">0</div>
+        <div class="ball">0</div>
+        <div class="ball">0</div>
+        <div class="ball">0</div>
+        <div class="ball">0</div>
+    </div>
+
+    <div class="extras">
+        <div class="line5">
+            <div class="ex"><input type="checkbox"> Wide</div>
+            <div class="ex"><input type="checkbox"> No Ball</div>
+            <div class="ex"><input type="checkbox"> Byes</div>
+            <div class="ex"><input type="checkbox"> Leg Byes</div>
+        </div>
+
+        <div class="line6">
+            <div class="ex"><input type="checkbox"> Wicket</div>
+            <button disabled>Retire</button>
+            <button disabled>Swap Batsman</button>
+        </div>
+    </div>
+
+    <div class="final-block">
+        <div class="help">
+            <div class="but1"><button>Undo</button></div>
+            <div class="but1"><button>Partnerships</button></div>
+            <div class="but1"><button>Extras</button></div>
+        </div>
+
+        <div class="run-btn">
+            <div class="line7">
+                <button class="ball-btn">0</button>
+                <button class="ball-btn">1</button>
+                <button class="ball-btn">2</button>
+                <button class="ball-btn">3</button>
+            </div>
+            <div class="line8">
+            <button class="ball-btn">4</button>
+            <button class="ball-btn">5</button>
+            <button class="ball-btn">6</button>
+            <button class="ball-btn">...</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

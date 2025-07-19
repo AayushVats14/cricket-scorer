@@ -1,0 +1,216 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-color: rgb(228,226,226);
+}
+header {
+    background-color: green;
+    color: white;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 25px;
+    margin: 10px;
+}
+
+#match-info {
+    font-size: 35px;
+    width: 70%;
+    font-weight: 600;
+}
+
+.score {
+    background-color: #fff;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: black;
+    display: flex;
+    justify-content: space-between;
+}
+
+.overs {
+    display: flex;
+    align-items: baseline;
+}
+
+#run-calc {
+    font-size: 40px;
+}
+
+#over-calc {
+    font-size: 20px;
+    margin: 5px;
+    opacity: 0.8;
+}
+
+#run-rate {
+    margin-bottom: 25px;
+}
+
+.line1 {
+    background-color: #fff;
+    margin: 10px 10px 0 10px;
+    border-radius: 10px 10px 0 0;
+    padding: 10px;
+    color: gray;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1.5px solid gray;
+}
+
+#head1, #head4 {
+    width: 50%;
+}
+
+.line2 {
+    background-color: #fff;
+    margin: 0 10px 0 10px;
+    padding: 10px;
+    color: gray;
+    display: flex;
+    justify-content: space-between;
+}
+
+#head2, #head3, #head5 {
+    width: 50%;
+    color: green;
+}
+
+.line3 {
+    background-color: #fff;
+    margin: 0 10px 0 10px;
+    padding: 10px;
+    color: gray;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1.5px solid gray;
+}
+
+.line4 {
+    background-color: #fff;
+    margin: 0 10px 10px 10px;
+    border-radius: 0 0 10px 10px;
+    padding: 10px;
+    color: gray;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1.5px solid gray;
+}
+
+.ru {
+    color: black;
+}
+
+.this-over {
+    background-color: #fff;
+    margin: 0 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    padding: 10px;
+    opacity: 0.9;
+    display: flex;
+    border-bottom: 1.5px solid gray;
+    align-items: center;
+}
+
+.ball {
+    height: 30px;
+    width: 30px;
+    border: 1px solid gray;
+    margin: 12px;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.line5 {
+    background-color: #fff;
+    margin: 0 10px 0 10px;
+    border-radius: 10px 10px 0 0;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.line6 {
+    background-color: #fff;
+    margin: 0 10px 10px 10px;
+    border-radius: 0 0 10px 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1.5px solid gray;
+    font-size: 20px;
+}
+
+button {
+    width: 140px;
+    height: 40px;
+    border-radius: 1rem;
+    background-color: green;
+    color: #fff;
+    font-size: 15px;
+}
+
+button:disabled {
+    background-color: gray;
+}
+
+.help {
+    background-color: #fff;
+    padding: 5px;
+    width: 10.75%;
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+
+.but1 {
+    margin: 10px;
+}
+
+.final-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.run-btn {
+    background-color: #fff;
+    height: 160px;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    width: 68%;
+}
+
+.ball-btn {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    margin: 10px;
+    background-color: #fff;
+    border: 4px solid green;
+    color: black;
+}
+
+.line7, .line8 {
+    display: flex;
+    justify-content: space-evenly;
+}
