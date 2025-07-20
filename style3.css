@@ -125,18 +125,6 @@ header {
     align-items: center;
 }
 
-.ball {
-    height: 30px;
-    width: 30px;
-    border: 1px solid gray;
-    margin: 12px;
-    border-radius: 50%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .line5 {
     background-color: #fff;
     margin: 0 10px 0 10px;
