@@ -71,3 +71,24 @@ i, p {
     border-radius: 15px;
     font-size: 25px;
 }
+
+#popup {
+    display: none;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 20px;
+    border: 2px solid green;
+    box-shadow: 0 0 10px green;
+    z-index: 1000;
+}
+
+#popup button {
+    margin: 10px;
+    width: 80%;
+    border-radius: 0.25rem;
+    background-color: green;
+    color: white;
+}

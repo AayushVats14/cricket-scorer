@@ -17,18 +17,25 @@
 
     <div class="batters">
         <p class="green">Striker</p>
-        <input type="text" placeholder="Player name" class="batter-name">
+        <input type="text" placeholder="Player name" class="batter-name" id="striker">
         <p class="green">Non-striker</p>
-        <input type="text" placeholder="Player name" class="batter-name">
+        <input type="text" placeholder="Player name" class="batter-name" id="non-striker">
     </div>
 
     <div class="bowler">
         <p class="green">Opening bowler</p>
-        <input type="text" placeholder="Player name" class="batter-name">
+        <input type="text" placeholder="Player name" class="batter-name" id="bowler">
     </div>
 
     <div class="submit-btn">
-        <button id="submit" onclick="window.location.href='page3.html'">Start Match</button>
+        <button id="submit" onclick="startGame()">Start Match</button>
     </div>
+
+    <div id="popup">
+        <p id="popupMsg"></p>
+        <button onclick="closePopup()">OK</button>
+    </div>
+
+    <script src="app2.js"></script>
 </body>
 </html>
