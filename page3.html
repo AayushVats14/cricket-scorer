@@ -32,7 +32,7 @@
 
         <div class="crr">
             <p id="run-rate">CRR</p>
-            <p>0.00</p>
+            <p id="crr">0.00</p>
         </div>
     </div>
 
@@ -48,20 +48,20 @@
 
         <div class="line2">
             <p id="head2">A</p>
-            <p class="ru">0</p>
-            <p>0</p>
-            <p>0</p>
-            <p>0</p>
-            <p>0</p>
+            <p class="ru" id="stru">0</p>
+            <p id="stba">0</p>
+            <p id="stf">0</p>
+            <p id="sts">0</p>
+            <p id="stsr">0</p>
         </div>
 
         <div class="line2">
             <p id="head3">B</p>
-            <p class="ru">0</p>
-            <p>0</p>
-            <p>0</p>
-            <p>0</p>
-            <p>0</p>
+            <p class="ru" id="nstru">0</p>
+            <p id="nstba">0</p>
+            <p id="nstf">0</p>
+            <p id="nsts">0</p>
+            <p id="nstsr">0</p>
         </div>
 
         <div class="line3">
@@ -75,34 +75,28 @@
 
         <div class="line4">
             <p id="head5">C</p>
-            <p>0.0</p>
-            <p>0</p>
-            <p>0</p>
-            <p>0</p>
-            <p>0.00</p>
+            <p id="bOver">0.0</p>
+            <p id="bMaiden">0</p>
+            <p id="bRuns">0</p>
+            <p id="bW">0</p>
+            <p id="bEco">0.00</p>
         </div>
     </div>
 
-    <div class="this-over">
+    <div class="this-over" id="this-over">
         <p>This over:</p>
-        <div class="ball">0</div>
-        <div class="ball">0</div>
-        <div class="ball">0</div>
-        <div class="ball">0</div>
-        <div class="ball">0</div>
-        <div class="ball">0</div>
     </div>
 
     <div class="extras">
         <div class="line5">
-            <div class="ex"><input type="checkbox"> Wide</div>
-            <div class="ex"><input type="checkbox"> No Ball</div>
-            <div class="ex"><input type="checkbox"> Byes</div>
-            <div class="ex"><input type="checkbox"> Leg Byes</div>
+            <div class="ex"><input type="checkbox" id="wide"> Wide</div>
+            <div class="ex"><input type="checkbox" id="noBall"> No Ball</div>
+            <div class="ex"><input type="checkbox" id="byes"> Byes</div>
+            <div class="ex"><input type="checkbox" id="legByes"> Leg Byes</div>
         </div>
 
         <div class="line6">
-            <div class="ex"><input type="checkbox"> Wicket</div>
+            <div class="ex"><input type="checkbox" id="wicket"> Wicket</div>
             <button disabled>Retire</button>
             <button disabled>Swap Batsman</button>
         </div>
@@ -117,15 +111,15 @@
 
         <div class="run-btn">
             <div class="line7">
-                <button class="ball-btn">0</button>
-                <button class="ball-btn">1</button>
-                <button class="ball-btn">2</button>
-                <button class="ball-btn">3</button>
+                <button class="ball-btn" onclick="submitBall(0)">0</button>
+                <button class="ball-btn" onclick="submitBall(1)">1</button>
+                <button class="ball-btn" onclick="submitBall(2)">2</button>
+                <button class="ball-btn" onclick="submitBall(3)">3</button>
             </div>
             <div class="line8">
-            <button class="ball-btn">4</button>
-            <button class="ball-btn">5</button>
-            <button class="ball-btn">6</button>
+            <button class="ball-btn" onclick="submitBall(4)">4</button>
+            <button class="ball-btn" onclick="submitBall(5)">5</button>
+            <button class="ball-btn" onclick="submitBall(6)">6</button>
             <button class="ball-btn">...</button>
             </div>
         </div>
