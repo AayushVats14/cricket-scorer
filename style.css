@@ -120,10 +120,6 @@ input:checked {
     text-decoration: none;
 }
 
-#error-msg {
-    color: red;
-}
-
 #popup {
     display: none;
     position: fixed;
