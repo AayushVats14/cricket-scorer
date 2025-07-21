@@ -8,18 +8,12 @@ window.onload = function () {
     const nonStriker = localStorage.getItem("nonStriker");
     const bowler = localStorage.getItem("bowler");
 
-    // if (!host || !visitor) {
-    //     alert("Match data missing. Please go back to seteup.");
-    //     window.location.href = "cricket.html";
-    //     return;
-    // }
-
     document.getElementById('matchInfo').textContent = `${host} vs ${visitor} - ${tossWinner} won the toss and chose to ${tossChoice}. (${overs} overs match)`
     document.getElementById('first-inn').textContent = `${host}, 1st innings`
     console.log(striker, nonStriker, bowler);
-    document.getElementById('head2').innerText = striker;
-    document.getElementById('head3').innerText = nonStriker;
-    document.getElementById('head5').innerText = bowler;
+    document.getElementById('head2').innerText = toTitleCase(striker);
+    document.getElementById('head3').innerText = toTitleCase(nonStriker);
+    document.getElementById('head5').innerText = toTitleCase(bowler);
     document.getElementById('match-info').textContent = `${host} v/s ${visitor}`
 };
 
@@ -41,13 +35,18 @@ let nonStriker = {
     sr: 0
 };
 
-let currentBowler = {
-    name: localStorage.getItem("bowler"),
-    overs: 0,
-    balls: 0,
-    runs: 0,
-    wickets: 0
-};
+let bowlers = {}; //key = bowler name, value = their stats
+let currentBowlerName = localStorage.getItem("bowler").toLowerCase();
+let currentBowlerBalls = 0;
+
+
+// let currentBowler = {
+//     name: localStorage.getItem("bowler"),
+//     overs: 0,
+//     balls: 0,
+//     runs: 0,
+//     wickets: 0
+// };
 
 let totalRuns = 0;
 let wickets = 0;
@@ -94,7 +93,6 @@ function submitBall(runs) {
     if (isWicket) {
         wickets += 1;
         legalDelivery = true; //counts ball
-        currentBowler.wickets += 1;
         const newBatter = prompt("Enter new batter:");
         striker = {
             name: newBatter,
@@ -173,29 +171,62 @@ function submitBall(runs) {
     //Clear all checkboxes after each delivery
     document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
 
-    //Over complete
-    if (ballsInOver === 6) {
-        ballsInOver = 0;
-        swapstrike();
-        setTimeout(() => {
-            thisOverDiv.innerHTML = "<p>This Over:</p>";
-        }, 4000);
-        //change bowler
-    }
+    //Updating bowler
+    ensureBowlerExists(currentBowlerName);
+    const b = bowlers[currentBowlerName];
 
     if (!isWide && !isNoBall) {
-        currentBowler.balls += 1;
-        if (currentBowler.balls === 6) {
-            currentBowler.overs += 1;
-            currentBowler.balls =0;
+        b.balls += 1;
+        currentBowlerBalls += 1;
+
+        if (b.balls === 6) {
+            b.overs += 1;
+            b.balls = 0;
         }
     }
 
     if (!isBye && !isLegByes) {
-        currentBowler.runs += runs;
+        b.runs += runs;
     }
+
     if (isWide || isNoBall) {
-        currentBowler.runs += (1 + runs);
+        b.runs += 1 + runs;
+    }
+
+    if (isWicket) {
+        b.wickets += 1;
+    }
+
+    //Over complete
+    if (ballsInOver === 6) {
+        ballsInOver = 0;
+        let previousBowler = currentBowlerName;
+        swapstrike();
+        setTimeout(() => {
+            thisOverDiv.innerHTML = "<p>This Over:</p>";
+            let newBowler;
+            do {
+                newBowler = prompt("Enter new bowler's name:");
+                if (!newBowler) return;
+
+                newBowler = newBowler.trim();
+
+                if (newBowler.toLowerCase() === previousBowler.toLowerCase()) {
+                    alert("Same bowler cannot bowl consecutive overs. Choose a different bowler.");
+                }
+            } while (newBowler.toLowerCase() === previousBowler.toLowerCase());
+
+            currentBowlerName = newBowler.toLowerCase();
+
+            ensureBowlerExists(currentBowlerName);
+            const b = bowlers[currentBowlerName];
+            document.getElementById("bOver").textContent = `${b.overs}.${b.balls}`;
+            document.getElementById("bRuns").textContent = b.runs;
+            document.getElementById("bW").textContent = b.wickets;
+            document.getElementById("bEco").textContent = `${getEco(b.runs, b.overs * 6 + b.balls)}`;
+            document.getElementById("head5").textContent = currentBowlerName;
+        }, 2000);
+
     }
 
     //End of Innings
@@ -216,11 +247,18 @@ function updateScore() {
         return overs === 0 ? "0.00": (runs / overs).toFixed(2);
     }
 
+    const b = bowlers[currentBowlerName];
+    document.getElementById("bOver").textContent = `${b.overs}.${b.balls}`;
+    document.getElementById("bRuns").textContent = b.runs;
+    
+    document.getElementById("bW").textContent = b.wickets;
+    document.getElementById("bEco").textContent = `${getEco(b.runs, b.overs * 6 + b.balls)}`;
+    document.getElementById("head5").textContent = toTitleCase(currentBowlerName);
     document.getElementById("crr").textContent = `${getCRR(totalRuns, balls)}`;
     document.getElementById("run-calc").textContent = `${totalRuns}-${wickets}`;
     document.getElementById("over-calc").textContent = `(${over}.${ball})`;
-    document.getElementById("head2").textContent = striker.name;
-    document.getElementById("head3").textContent = nonStriker.name;
+    document.getElementById("head2").textContent = toTitleCase(striker.name);
+    document.getElementById("head3").textContent = toTitleCase(nonStriker.name);
     document.getElementById("stru").textContent = striker.runs;
     document.getElementById('nstru').textContent = nonStriker.runs;
     document.getElementById("stba").textContent = striker.balls;
@@ -230,11 +268,7 @@ function updateScore() {
     document.getElementById("nstsr").textContent = nonStriker.sr;
     document.getElementById("stf").textContent = striker.four;
     document.getElementById("sts").textContent = striker.six;
-    document.getElementById("stsr").textContent = striker.sr;
-    document.getElementById("bOver").textContent = `${currentBowler.overs}.${currentBowler.balls}`;
-    document.getElementById("bRuns").textContent = currentBowler.runs;
-    document.getElementById("bW").textContent = currentBowler.wickets;
-    document.getElementById("bEco").textContent = `${getEco(currentBowler.runs, currentBowler.overs * 6 + currentBowler.balls)}`;   
+    document.getElementById("stsr").textContent = striker.sr;   
 }
 
 function swapstrike() {
@@ -246,4 +280,19 @@ function swapstrike() {
 function getEco(runs, balls) {
     const overs = balls / 6;
     return overs === 0 ? "0.00" : (runs / overs).toFixed(2);
+}
+
+function ensureBowlerExists(name) {
+    if (!bowlers[name]) {
+        bowlers[name] = {
+            overs: 0,
+            balls: 0,
+            runs: 0,
+            wickets: 0
+        };
+    }
+}
+
+function toTitleCase(str) {
+    return str.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 }
